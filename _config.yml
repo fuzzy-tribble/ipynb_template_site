@@ -61,6 +61,7 @@ plugins:
 exclude:
   - tools/
   - notebooks/
+  - _notebooks/
 #   - .jekyll-cache/
 #   - gemfiles/
 #   - Gemfile
