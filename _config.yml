@@ -41,6 +41,7 @@ header_pages:
   - pages/about.md
 # Build settings
 # theme: minima
+theme: "github:minima"
 # minima:
 #   skin: sunrise
 remote_theme: minima
