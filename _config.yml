@@ -27,9 +27,9 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  nancynobody
 
 # Site Collections (like posts but without pesky date/time requirements)
-collections:
-  notebooks:
-    output: true
+# collections:
+#   notebooks:
+#     output: true
     # order:
     #   - hello-world.md
     #   - introduction.md
@@ -44,8 +44,9 @@ theme: minima
 # minima:
 #   skin: sunrise
 # remote_theme: THEME-NAME
-# plugins:
-#   - jekyll-feed
+plugins:
+ - jekyll-seo-tag
+#  - jekyll-feed
 # gems:
 #   - jekyll-jupyter-notebook
 # EXCLUDE from processing.
