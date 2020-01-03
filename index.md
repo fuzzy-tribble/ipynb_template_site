@@ -10,6 +10,7 @@ This repository contains workbooks to help you become fluent in [Python](https:/
 
 <img width="500" src="images/python-xkcdc.png"/>
 
+
 # How to use the content
 
 You can either reference the workbook content online using the link below or run them interactively locally or using Jupyter's online tool nbviewer + binder.
