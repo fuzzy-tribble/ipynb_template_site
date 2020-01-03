@@ -40,10 +40,10 @@ github_username:  nancynobody
 header_pages:
   - pages/about.md
 # Build settings
-theme: minima
+# theme: minima
 # minima:
 #   skin: sunrise
-# remote_theme: THEME-NAME
+remote_theme: minima
 plugins:
  - jekyll-seo-tag
 #  - jekyll-feed
