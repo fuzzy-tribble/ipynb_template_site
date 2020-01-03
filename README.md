@@ -1,3 +1,5 @@
+# TODO COMPLETE THIS README
+
 # Github.io Pages Template for IPython Notebooks
 
 A template for pushing ipython notebooks to github pages site.
@@ -5,6 +7,16 @@ A template for pushing ipython notebooks to github pages site.
 # How to use
 
 ## Step 1: Get the site configs/styles and build tools
+
+add the following line to your `_config.yml` file
+
+`remote-theme: nancynobody/ipynb_template_site`
+
+
+
+
+
+
 * Clone this repo and add your notebooks to the "notebooks" folder
 
 OR
