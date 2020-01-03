@@ -1,1 +1,9 @@
-# TODO
+# Static Site for ...
+
+# Customize Site Configurations
+
+## How to update which notebooks are ...
+
+## How to update css, html...
+
+**TODO**
