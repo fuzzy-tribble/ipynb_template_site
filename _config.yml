@@ -41,10 +41,11 @@ header_pages:
   - pages/about.md
 # Build settings
 # theme: minima
-theme: "github:minima"
+# theme: "github:minima"
+theme: "gem:minima"
 # minima:
 #   skin: sunrise
-remote_theme: minima
+# remote_theme: minima
 plugins:
  - jekyll-seo-tag
 #  - jekyll-feed
