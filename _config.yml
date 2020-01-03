@@ -1,5 +1,3 @@
-# Welcome to Jekyll!
-#
 # This config file is meant for settings that affect your whole blog, values
 # which you are expected to set up once and rarely edit after that. If you find
 # yourself editing this file very often, consider using Jekyll's data files
@@ -17,8 +15,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-
-title: Python Fluency Workbooks
+title: Test Site for Displaying IPython Workbooks
 # email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
@@ -40,20 +37,17 @@ collections:
     #   - concepts/advanced.md
 
 # Customize navigation links
-# Set which pages you want to appear in the navigation area and configure order of the links.
 header_pages:
   - pages/about.md
-  # - about.markdown
 # Build settings
-# theme: minima
+theme: minima
 # minima:
 #   skin: sunrise
 # remote_theme: THEME-NAME
-plugins:
-  - jekyll-feed
+# plugins:
+#   - jekyll-feed
 # gems:
 #   - jekyll-jupyter-notebook
-
 # EXCLUDE from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to
@@ -61,7 +55,6 @@ plugins:
 #
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
-
 exclude:
   - tools/
   - notebooks/
@@ -83,8 +76,8 @@ exclude:
 # To add links to your SM accounts with icon, add the appropriate lines below
 minima:
   social_links:
-#     twitter: jekyllrb
     github: nancynobody
+#     twitter: jekyllrb
 #     dribbble: jekyll
 #     facebook: jekyll
 #     flickr: jekyll
