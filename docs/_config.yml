@@ -74,13 +74,6 @@ plugins:
 #   - vendor/gems/
 #   - vendor/ruby/
 
-# INCLUDE in processing.
-include:
-  - _includes/
-  - _layouts/
-  - _notebooks/
-  - _sass/
-
 # Google Analytics (will only appear in production, i.e., JEKYLL_ENV=production)
 # To enable, add the following lines to your Jekyll site
 #   google_analytics: UA-NNNNNNNN-N

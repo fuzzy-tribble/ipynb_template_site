@@ -1,6 +1,6 @@
-# Github.io Pages Website Template for IPython Notebooks
+# Github.io Pages Template for IPython Notebooks
 
-A template for when I want to push my ipython notebooks to a github pages site.
+A template for pushing ipython notebooks to github pages site.
 
 # How to use
 
