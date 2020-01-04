@@ -4,7 +4,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Test Site for Displaying IPython Workbooks
+title: IPython NB Example
 # email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
@@ -59,14 +59,9 @@ minima:
     github: nancynobody
 #     twitter: jekyllrb
 #     dribbble: jekyll
-#     facebook: jekyll
-#     flickr: jekyll
-#     instagram: jekyll
 #     linkedin: jekyll
-#     pinterest: jekyll
 #     telegram: jekyll
 #     googleplus: +jekyll
-#     microdotblog: jekyll
 #     keybase: jekyll
 #     rss: rss
 
