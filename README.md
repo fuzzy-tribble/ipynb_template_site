@@ -48,7 +48,9 @@ The following steps will help you setup your repo so you have a folder structure
 
 * Enable github pages [as described here](https://guides.github.com/features/pages/)
 
-:exclamation: Don't chose a theme using the github gui...minima styles are in the `docs/_config.yml` repo already!
+* Point the pages source to be the `docs/` folder rather than the master branch.
+
+:exclamation: Don't chose a theme using the github gui! The minima theme is already in the `docs/_config.yml` repo already!
 
 ## Step 3: Build site, git add, commit, push
 
