@@ -4,8 +4,7 @@ import os
 from traitlets.config import Config
 from nbconvert import HTMLExporter
 
-INPUT_NB_DIR = os.path.join(os.path.dirname(__file__), '..', 'notebooks')
-OUTPUT_NB_DIR = '../docs/_notebooks/'
+from custom_configs import *
 
 # Setup html exporter template/configs
 html_exporter = HTMLExporter()
@@ -17,11 +16,8 @@ def get_body(nb_node):
     return body
 
 def get_nb_info(nb_node):
-    NB_COMMENT = "<!--NB_INFO-->"
-    NB_INFO = NB_COMMENT + """
-    <img align="left" style="padding-right:10px;" src="images/python.png">
-    <p>This notebook is part of the {{ site.title }}; the content is available <a href="https://github.com/nancynobody">on GitHub</a>.</p>"""
-    return NB_INFO
+    """ Return nb info from configs or nothing"""
+    return NB_INFO or False
 
 
 def get_nb_title(nb_node):
@@ -41,9 +37,10 @@ def get_front_matter(nb_node):
     """ Get front matter for Jekyll """
     layout = "notebook"
     title = get_nb_title(nb_node)
-    permalink = title.lower()
+    # TODO HARDEN - check for special chars in title
+    permalink = title.lower().replace(" ", "-")
     topics = str(get_nb_topics(nb_node))
-    return "---\nlayout: {}\ntitle: {}\npermalink: \/{}\/\ntopics: {}\n---\n".format(layout, title, permalink, topics)
+    return "---\nlayout: {}\ntitle: {}\npermalink: /{}/\ntopics: {}\n---\n".format(layout, title, permalink, topics)
 
 
 def ipynb_to_html(in_nb_dir, out_nb_dir=""):
@@ -53,6 +50,9 @@ def ipynb_to_html(in_nb_dir, out_nb_dir=""):
     """
 
     nb_files = glob.glob(in_nb_dir + '*.ipynb')
+
+    if len(nb_files) < 1:
+        print("Found no notebooks to convert in {}".format(in_nb_dir))
 
     for nb_file in nb_files:
         nb_node = nbformat.read(nb_file, as_version=4)
@@ -68,11 +68,10 @@ def ipynb_to_html(in_nb_dir, out_nb_dir=""):
 
         with open(write_path, "w") as file:
             file.write(front_matter)
-            file.write(nb_info)
+            if nb_info:
+                file.write(nb_info)
             file.write(body)
 
 
 if __name__ == '__main__':
-    try: 
-        ipynb_to_html(INPUT_NB_DIR, OUTPUT_NB_DIR)
-    
+    ipynb_to_html(INPUT_NB_DIR, OUTPUT_NB_DIR)
