@@ -64,6 +64,16 @@ def get_front_matter(nb_node):
     return "---\nlayout: {}\ntitle: {}\npermalink: /{}/\ntopics: {}\n---\n".format(layout, title, permalink, topics)
 
 
+def get_nb_nav():
+    """ Get html for notebook navigation """
+    #TODO implement prev/next nb links
+    prev_nb = '&lt; <a href="#">Next NB Title</a> | '
+    contents = '<a href="/ipynb_template_site/">Contents</a>'
+    next_nb = ' | <a href="#">Next NB Title</a> &gt;'
+    nb_nav = "<p>{}{}{}</p>".format(prev_nb, contents, next_nb)
+    return nb_nav
+
+
 def ipynb_to_html(in_nb_dir, out_nb_dir=""):
     """
     Convert list of ipython notebooks to final html files
@@ -82,6 +92,7 @@ def ipynb_to_html(in_nb_dir, out_nb_dir=""):
 
         front_matter = get_front_matter(nb_node)
         nb_info = get_nb_info(nb_node)
+        nb_nav = get_nb_nav()
         body = get_body(nb_node)
 
         write_path = out_nb_dir + nb_file_name[:-5] + "html"
@@ -91,6 +102,8 @@ def ipynb_to_html(in_nb_dir, out_nb_dir=""):
             file.write(front_matter)
             if nb_info:
                 file.write(nb_info)
+            if nb_nav:
+                file.write(nb_nav)
             file.write(body)
 
 def move_nb_assets(inp_ass_dirs, out_assets_dir):
