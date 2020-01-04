@@ -13,7 +13,7 @@ description: >- # this means to ignore newlines until "baseurl:"
 # baseurl: "" # the subpath of your site, e.g. /blog
 # url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
-github_username:  nancynobody
+# github_username:  nancynobody
 
 # Site Collections (like posts but without pesky date/time requirements)
 collections:
@@ -29,9 +29,9 @@ theme: minima
 # minima:
 #   skin: sunrise
 
-# plugins:
-#  - jekyll-seo-tag
-#  - jekyll-feed
+plugins:
+ - jekyll-seo-tag
+ - jekyll-feed
 
 # Excluded items can be processed by explicitly listing the directories or
 # their entries' file path in the `include:` list.
@@ -56,10 +56,10 @@ exclude:
 # To add links to your SM accounts with icon, add the appropriate lines below
 minima:
   social_links:
-    github: nancynobody
-#     twitter: jekyllrb
+    github: jekyllrb
+    twitter: jekyllrb
+    linkedin: jekyll
 #     dribbble: jekyll
-#     linkedin: jekyll
 #     telegram: jekyll
 #     googleplus: +jekyll
 #     keybase: jekyll
@@ -71,6 +71,6 @@ minima:
 #      - username: jekyll2
 #        instance: example.com
 
-#     youtube: jekyll
+    youtube: jekyll
 #     youtube_channel: UC8CXR0-3I70i1tfPg1PAE1g
 #     youtube_channel_name: CloudCannon
