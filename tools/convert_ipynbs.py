@@ -70,7 +70,7 @@ def get_nb_nav():
     prev_nb = '&lt; <a href="#">Next NB Title</a> | '
     contents = '<a href="/ipynb_template_site/">Contents</a>'
     next_nb = ' | <a href="#">Next NB Title</a> &gt;'
-    nb_nav = "<p>{}{}{}</p>".format(prev_nb, contents, next_nb)
+    nb_nav = '<p style="font-style:italic;font-size:smaller;">{}{}{}</p>'.format(prev_nb, contents, next_nb)
     return nb_nav
 
 
