@@ -76,6 +76,8 @@ To customize html...
 
 # Future TODOs
 
+* Harden python conversion script
+
 * Write a gem so you don't have to run the python script
 
 * Make an official theme so you don't have to copy the folders but can just use github pages new `remote_theme` config option in `_config.yml`
