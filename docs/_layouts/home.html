@@ -6,6 +6,8 @@ layout: default
   
   {{ content }}
 
+  <br><br>
+
   {%- if site.notebooks.size > 0 -%}
     <h2 class="post-list-heading">{{ page.list_title | default: "Table of Contents" }}</h2>
     <ul class="post-list">
@@ -13,7 +15,7 @@ layout: default
       <li>
         <h3>
           <a class="post-link" href="{{ notebook.url | relative_url }}">
-            # {{ notebook.title | escape }}
+            {{ notebook.title | escape }}
           </a>
         </h3>
         <ul>
