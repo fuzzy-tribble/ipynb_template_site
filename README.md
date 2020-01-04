@@ -80,6 +80,8 @@ To customize html...
 
 * Harden python conversion script
 
+* Fix social icons in footer...apparently they aren't displaying on the site
+
 * Write a gem so you don't have to run the python script
 
 * Make an official theme so you don't have to copy the folders but can just use github pages new `remote_theme` config option in `_config.yml`

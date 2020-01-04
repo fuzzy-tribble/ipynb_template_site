@@ -12,10 +12,27 @@ from custom_configs import *
 html_exporter = HTMLExporter()
 html_exporter.template_file = 'basic'
 
+
 def get_body(nb_node):
     """ Get HTML body from notebook """
     (body, resources) = html_exporter.from_notebook_node(nb_node)
-    return body
+    fixed_body = fix_links(body)
+    return fixed_body
+
+
+def fix_links(body):
+    """ Find all local asset links and correct """
+    # TODO Fix to handle no folder case: src="python_xkcd.svg"
+
+    NB_ASSET_DIRS = ['figures', 'images', 'img']
+    correct_asset_dir = 'src="/assets/images/'
+    s = '|'.join(NB_ASSET_DIRS)
+    regex = re.compile(r'(?:source|src)=\"\/?(?:%s)\/' % s, re.IGNORECASE)
+
+    fixed_body = re.sub(regex, correct_asset_dir, body)
+    
+    return fixed_body
+
 
 def get_nb_info(nb_node):
     """ Return nb info from configs or nothing"""
@@ -32,7 +49,7 @@ def get_nb_title(nb_node):
 def get_nb_topics(nb_node):
     """ Get notebook topics give a nb_node (json) """
     txt_src = nb_node.cells[0].source
-    m = re.search(REGEX, txt_src)
+    m = re.search(REGEX_TOPICS, txt_src)
     topics = m.group(0).replace("**Topics Covered**\n* ", "").split("\n* ") 
     return str(topics)
 
@@ -78,13 +95,16 @@ def ipynb_to_html(in_nb_dir, out_nb_dir=""):
 
 def move_nb_assets(inp_ass_dirs, out_assets_dir):
     """ Move notebook assets to docs/assets folder """
+    dest = os.path.join(os.path.dirname(__file__), '..', 'docs/assets/images/')
+    print("Preparing to copy asset files to {}...".format(dest.split("/")[-4]))
+
     for subdir in inp_ass_dirs:
         files = glob.glob(INPUT_NB_DIR + subdir)
-        for f in files:
-            print("Copying file: {}".format(f.split("/")[-1]))
-            copyfile(f, out_assets_dir)
+        for src in files:
+            print("Copying file: {}...".format(src.split("/")[-1]))
+            copyfile(src, dest)
 
 if __name__ == '__main__':
     ipynb_to_html(INPUT_NB_DIR, OUTPUT_NB_DIR)
-    move_nb_assets(INPUT_ASSET_DIRS, OUTPUT_ASSET_DIR)
+    move_nb_assets(NB_ASSET_DIRS)
     # TODO fix this shit - dont pass in if globally imported

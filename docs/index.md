@@ -8,4 +8,4 @@ layout: home
 
 This repository contains my ipython notebooks for bla bla bla bla.
 
-<img width="400" src="images/python-xkcdc.png"/>
+<img width="400" src="/assets/images/python-xkcd.png"/>

@@ -12,7 +12,7 @@ OUTPUT_NB_DIR = '../docs/_notebooks/'
 
 # NOTEBOOK INFO
 # Edit the notebook info that you want at the top of your notebook pages
-NB_INFO = "<!--NB_INFO-->" + """<img align="left" style="padding-right:10px;" src="images/python.png"><p>This notebook is part of the {{ site.title }}; the content is available <a href="https://github.com/nancynobody">on GitHub</a>.</p>"""
+NB_INFO = "<!--NB_INFO-->" + """<img align="left" style="padding-right:10px;" src="/assets/images/python.png"><p>This notebook is part of the {{ site.title }}; the content is available <a href="https://github.com/nancynobody">on GitHub</a>.</p>"""
 
 # NOTEBOOK TOPICS
 # TODO allow config option of displaying nb topics in table of contents
@@ -20,7 +20,7 @@ NB_INFO = "<!--NB_INFO-->" + """<img align="left" style="padding-right:10px;" sr
 # Topics Covered
 # \n* Topic A
 # \n* Topic B
-REGEX = r"\*\*Topics\sCovered\*\*([\\n\*\s]+[\w\s]+)+" 
+REGEX_TOPICS = r"\*\*Topics\sCovered\*\*([\\n\*\s]+[\w\s]+)+" 
 
 # NOTEBOOK TITLE
 # TODO allow config option for displaying nb title
@@ -31,5 +31,4 @@ REGEX = r"\*\*Topics\sCovered\*\*([\\n\*\s]+[\w\s]+)+"
 # DIRS WITH NOTEBOOK ASSETS
 # These are the folders that have images/data/etc that need
 # to be moved to the sites assets dir so they can be displayed
-INPUT_NB_ASSET_DIRS = ['figures', 'data']
-OUTPUT_ASSET_DIR = os.path.join(os.path.dirname(__file__), '..', 'docs/assets/')
+NB_ASSET_DIRS = ['figures', 'data']
