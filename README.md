@@ -1,8 +1,8 @@
-# TODO COMPLETE THIS README
-
 # Github.io Pages Template for IPython Notebooks
 
 A template for pushing ipython notebooks to github pages site.
+
+*Adapted from ...*
 
 # How to use
 
