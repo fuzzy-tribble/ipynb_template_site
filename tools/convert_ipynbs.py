@@ -1,8 +1,10 @@
 import nbformat
 import glob
 import os
+import re
 from traitlets.config import Config
 from nbconvert import HTMLExporter
+from shutil import copyfile
 
 from custom_configs import *
 
@@ -29,8 +31,10 @@ def get_nb_title(nb_node):
 
 def get_nb_topics(nb_node):
     """ Get notebook topics give a nb_node (json) """
-    # TODO
-    return str(["test1", "test2"])
+    txt_src = nb_node.cells[0].source
+    m = re.search(REGEX, txt_src)
+    topics = m.group(0).replace("**Topics Covered**\n* ", "").split("\n* ") 
+    return str(topics)
 
 
 def get_front_matter(nb_node):
@@ -72,6 +76,15 @@ def ipynb_to_html(in_nb_dir, out_nb_dir=""):
                 file.write(nb_info)
             file.write(body)
 
+def move_nb_assets(inp_ass_dirs, out_assets_dir):
+    """ Move notebook assets to docs/assets folder """
+    for subdir in inp_ass_dirs:
+        files = glob.glob(INPUT_NB_DIR + subdir)
+        for f in files:
+            print("Copying file: {}".format(f.split("/")[-1]))
+            copyfile(f, out_assets_dir)
 
 if __name__ == '__main__':
     ipynb_to_html(INPUT_NB_DIR, OUTPUT_NB_DIR)
+    move_nb_assets(INPUT_ASSET_DIRS, OUTPUT_ASSET_DIR)
+    # TODO fix this shit - dont pass in if globally imported

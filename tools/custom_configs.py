@@ -20,10 +20,16 @@ NB_INFO = "<!--NB_INFO-->" + """<img align="left" style="padding-right:10px;" sr
 # Topics Covered
 # \n* Topic A
 # \n* Topic B
-REG = re.compile(r'Topics Covered.*(\\n\*[\w\s]*)+')
+REGEX = r"\*\*Topics\sCovered\*\*([\\n\*\s]+[\w\s]+)+" 
 
 # NOTEBOOK TITLE
 # TODO allow config option for displaying nb title
 
 # NOTEBOOK FRONT MATTER
 # TODO allow editing of front_matter
+
+# DIRS WITH NOTEBOOK ASSETS
+# These are the folders that have images/data/etc that need
+# to be moved to the sites assets dir so they can be displayed
+INPUT_NB_ASSET_DIRS = ['figures', 'data']
+OUTPUT_ASSET_DIR = os.path.join(os.path.dirname(__file__), '..', 'docs/assets/')
