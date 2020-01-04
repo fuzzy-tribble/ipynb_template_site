@@ -24,8 +24,10 @@ def fix_links(body):
     """ Find all local asset links and correct """
     # TODO Fix to handle no folder case: src="python_xkcd.svg"
 
+    # href="{{ '/assets/minima-social-icons.svg#dribbble' | relative_url }}"
+
     NB_ASSET_DIRS = ['figures', 'images', 'img']
-    correct_asset_dir = 'src="/assets/images/'
+    correct_asset_dir = 'src="assets/images/'
     s = '|'.join(NB_ASSET_DIRS)
     regex = re.compile(r'(?:source|src)=\"\/?(?:%s)\/' % s, re.IGNORECASE)
 
