@@ -12,7 +12,7 @@ OUTPUT_NB_DIR = '../docs/_notebooks/'
 
 # NOTEBOOK INFO
 # Edit the notebook info that you want at the top of your notebook pages
-NB_INFO = "<!--NB_INFO-->" + """<img align="left" style="padding-right:10px;" src="/assets/images/python.png"><p>This notebook is part of the {{ site.title }}; the content is available <a href="https://github.com/nancynobody">on GitHub</a>.</p>"""
+NB_INFO = "<!--NB_INFO-->" + """<img align="left" width="30" style="padding-right:10px;" src="/assets/images/python-logo.png"><p>This notebook is part of the {{ site.title }}; the content is available <a href="https://github.com/nancynobody">on GitHub</a>.</p>"""
 
 # NOTEBOOK TOPICS
 # TODO allow config option of displaying nb topics in table of contents
