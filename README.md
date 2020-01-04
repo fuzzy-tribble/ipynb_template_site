@@ -6,7 +6,7 @@ This repo contains an adaptation of the [minima theme](https://jekyll.github.io/
 
 * Custom styles (`_sass/custom.css`) for displaying .ipynb's beautifully
 
-* Custom scripts (`tools/convert_ipynbs.py`) for converting your .ipython notebooks for Jekyll processing by github pages
+* Custom scripts (`tools/convert_ipynbs.py`) for converting your Jupyter Notebooks (ipython specifically) for github pages
 
 ## Structure
 
@@ -48,9 +48,9 @@ The following steps will help you setup your repo so you have a folder structure
 
 * Enable github pages [as described here](https://guides.github.com/features/pages/)
 
-* Point the pages source to be the `docs/` folder rather than the master branch.
+* In the `Settings` tab of your repo, point the pages source to be the `docs/` folder rather than the master branch.
 
-:exclamation: Don't chose a theme using the github gui! The minima theme is already in the `docs/_config.yml` repo already!
+:exclamation: Don't chose a theme using the Github GUI! The minima theme is already in the `docs/_config.yml` repo already!
 
 ## Step 3: Build site, git add, commit, push
 
