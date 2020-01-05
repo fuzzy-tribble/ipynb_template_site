@@ -22,8 +22,8 @@ def get_body(nb_node):
 
 def fix_links(body):
     """ Find all local asset links and correct """
-    # TODO Fix to handle no folder case: src="python_xkcd.svg"
-    # TODO Fix to use relative urls to get rid of hardcoded ipynb_template_site...
+    #TODO: Fix to handle no folder case: src="python_xkcd.svg"
+    #TODO: Fix to use relative urls to get rid of hardcoded ipynb_template_site...
     # href="{{ '/assets/minima-social-icons.svg#dribbble' | relative_url }}"
 
     NB_ASSET_DIRS = ['figures', 'images', 'img']
