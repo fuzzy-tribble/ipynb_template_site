@@ -71,6 +71,9 @@ git push
 
 ## Site Customizations
 
+TODO: FILL THIS SECTION IN
+
+Explain how to add google analytics and disqus
 To customize styles
 To customize html...
 
