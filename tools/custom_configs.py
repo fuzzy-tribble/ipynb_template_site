@@ -1,6 +1,5 @@
 ### DEFINE YOUR CUSTOM CONFIGS HERE ###
 import os
-import re
 
 # The directory that contains your .ipynb files
 # If you followed the README they should be in the ../notebooks/ folder
@@ -35,4 +34,5 @@ REGEX_TOPICS = r"\*\*Topics\sCovered\*\*([\\n\*\s]+[\w\s]+)+"
 # DIRS WITH NOTEBOOK ASSETS
 # These are the folders that have images/data/etc that need
 # to be moved to the sites assets dir so they can be displayed
-NB_ASSET_DIRS = ['figures', 'data']
+# ALL OF YOUR NB ASSETS MUST BE IN A SUBFOLDER!!!!
+NB_ASSET_DIRS = ['figures', 'data', 'images', 'imgs']

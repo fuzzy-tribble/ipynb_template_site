@@ -19,19 +19,18 @@ def get_body(nb_node):
     return fixed_body
 
 
+def link_repl(matchobj):
+    """ Replace src/link matchobj with corrected link """
+    print("called repl: {}".format(matchobj.groups()))
+    corrected_link = 'src={{{{ "/assets/{}" | relative_url }}}} '.format(matchobj.groups()[0])
+    return corrected_link
+
+
 def fix_links(body):
     """ Find all local asset links and correct """
-    #TODO: Fix to handle no folder case: src="python_xkcd.svg"
-    #TODO: Fix to use relative urls to get rid of hardcoded ipynb_template_site...
-    # href="{{ '/assets/images/blabla.png' | relative_url }}"
-
-    NB_ASSET_DIRS = ['figures', 'images', 'img']
-    correct_asset_dir = 'src="/ipynb_template_site/assets/images/'
-    s = '|'.join(NB_ASSET_DIRS)
-    regex = re.compile(r'(?:source|src)=\"\/?(?:%s)\/' % s, re.IGNORECASE)
-
-    fixed_body = re.sub(regex, correct_asset_dir, body)
-    
+    s = '|'.join(conf.NB_ASSET_DIRS)
+    regex = re.compile(r'(?:source|src)=\"(\/?(?:%s)\/[\w\d\-_\.]+)\"' % s, re.IGNORECASE)
+    fixed_body = re.sub(regex, link_repl, body)
     return fixed_body
 
 
@@ -107,8 +106,6 @@ def ipynb_to_html(in_dir=conf.INPUT_NB_DIR, out_dir=conf.OUTPUT_NB_DIR):
     for i in range(len(nb_files)):
         #TODO optimize this by passing titles and permalinks 
         # around instead of reopening nb nodes
-        
-        #TODO RID OF .split() repeating shit
 
         # track prev, curr, next for navigation purposes
         curr_nb_node = nbformat.read(nb_files[i], as_version=4)
@@ -140,17 +137,26 @@ def ipynb_to_html(in_dir=conf.INPUT_NB_DIR, out_dir=conf.OUTPUT_NB_DIR):
                 file.write(nb_nav)
             file.write(body)
 
+
 def move_assets(inp=conf.NB_ASSET_DIRS):
     """ Move assets (images, etc) from notebook folder to docs/assets folder """
+    #TODO fix so it doesn't overwrite by default
 
-    dest = os.path.join(os.path.dirname(__file__), '..', 'docs/assets/images/')
-    print("Preparing to copy asset files to {}...".format(dest.split("/")[-4]))
+    dest = os.path.join(os.path.dirname(__file__), '..', 'docs/assets/')
+    print("Preparing to copy asset files...")
 
     for subdir in inp:
-        files = glob.glob(inp + subdir)
+        print("Looking in: {}".format(subdir))
+        files = glob.glob(conf.INPUT_NB_DIR + subdir + '/*')
+        print("Found files: {}".format(files))
         for src in files:
-            print("Copying file: {}...".format(src.split("/")[-1]))
-            copyfile(src, dest)
+            if os.path.isfile(src):
+                fname = src.split("/")[-1]
+                print("Copying file: {}...".format(fname))
+                fdest = dest + subdir
+                if not os.path.exists(fdest):
+                    os.mkdir(fdest)
+                copyfile(src, fdest + '/' + fname)
 
 if __name__ == '__main__':
     ipynb_to_html()
