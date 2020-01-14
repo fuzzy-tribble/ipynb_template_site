@@ -40,16 +40,9 @@ exclude:
   - tools/
   - notebooks/
   - README.md
-#   - .jekyll-cache/
-#   - gemfiles/
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules/
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
 
+include:
+  - assets/figures/
 # Google Analytics (will only appear in production, i.e., JEKYLL_ENV=production)
 # To enable, add the following lines to your Jekyll site
 #   google_analytics: UA-NNNNNNNN-N
