@@ -39,6 +39,7 @@ plugins:
 exclude:
   - tools/
   - notebooks/
+  - README.md
 #   - .jekyll-cache/
 #   - gemfiles/
 #   - Gemfile
