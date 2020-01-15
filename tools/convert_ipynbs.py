@@ -50,7 +50,9 @@ def get_nb_topics(nb_node):
     """ Get notebook topics give a nb_node (json) """
     txt_src = nb_node.cells[0].source
     m = re.search(conf.REGEX_TOPICS, txt_src)
-    topics = m.group(0).replace("**Topics Covered**\n* ", "").split("\n* ") 
+    if len(m.groups) != 0:
+        topics = m.group(0).replace("**Topics Covered**\n* ", "").split("\n* ")
+    else topics = ''
     return str(topics)
 
 
